@@ -1,0 +1,1 @@
+A small script that check if there are any Vozilla cars nearby of the user
