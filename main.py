@@ -1,9 +1,21 @@
 from email_gmail import send_email
 from settings import MAX_DISTANCE
-from handling_vozilla_api import get_car_distance, get_vozilla_api, get_cars, get_car_plates
+from vozilla_api import get_vozilla_api, get_cars, get_cars_within_distance
+import json
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     api_response = get_vozilla_api()
     cars = get_cars(api_response)
-    send_email(get_car_plates(cars, MAX_DISTANCE), get_car_distance(cars, MAX_DISTANCE))
+    cars_nearby = get_cars_within_distance(cars, MAX_DISTANCE)
+    if cars_nearby:
+        try:
+            with open("recent_cars.json", "r") as json_data:
+                cars_nearby_saved = json.load(json_data)
+            if cars_nearby != cars_nearby_saved:
+                f2 = open("recent_cars.json", "w")
+                f2.write(json.dumps(cars_nearby))
+                f2.close()
+                send_email(cars_nearby)
+        except FileNotFoundError as e:
+            print(e)

@@ -1,1 +1,1 @@
-A small script that check if there are any Vozilla cars nearby of the user
+A small script that checks if there are any Vozilla cars nearby of the user, if so, sends them an email with detailed info
