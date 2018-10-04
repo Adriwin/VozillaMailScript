@@ -1,24 +1,24 @@
 import smtplib
 import socket
 from email.mime.text import MIMEText
-from settings import user, password, host, port
+from settings import USER, PASSWORD, HOST, PORT
 
 
 def send_email(cars_nearby):
-    cars_nearby = "".join("{!s}->{!r}\n".format(k, v) for (k, v) in cars_nearby.items())
+    cars_nearby = "".join("{!s}->{!s}\n".format(k, v) for (k, v) in cars_nearby.items())
     email_text = 'Hey, \nThe subjects says it all -> go on your Vozilla app and look for the car ' \
                  '[plates:distance];\n' + cars_nearby\
                  + '\n\n-Your dearest'
     msg = MIMEText(email_text)
     msg["Subject"] = 'Vozilla nearby'
-    msg["From"] = user
-    msg["To"] = user
+    msg["From"] = USER
+    msg["To"] = USER
 
     try:
-        server = smtplib.SMTP_SSL(host, port)
+        server = smtplib.SMTP_SSL(HOST, PORT)
         server.ehlo()
-        server.login(user, password)
-        server.sendmail(user, user, msg.as_string())
+        server.login(USER, PASSWORD)
+        server.sendmail(USER, USER, msg.as_string())
         server.close()
         print("Email sent!")
 

@@ -1,9 +1,6 @@
 import requests
 from calculations import distance
-from settings import YOUR_COORDS
-
-
-API_URL = "https://api-client-portal.vozilla.pl//map?objectType=VEHICLE&vehicleStatus=AVAILABLE&vehicleStatus=RESERVED.json"
+from settings import YOUR_COORDS, API_URL
 
 
 def get_vozilla_api():

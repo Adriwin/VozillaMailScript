@@ -1,5 +1,5 @@
 import math
-
+from settings import EARTH_RADIUS
 
 def degrees_to_radians(degrees):
     return degrees * math.pi / 180
@@ -10,7 +10,6 @@ def coords_in_radians(coords):
 
 
 def distance(coords1, coords2):
-    EARTH_RADIUS = 6371
     lat1, lon1 = coords_in_radians(coords1)
     lat2, lon2 = coords_in_radians(coords2)
 

@@ -13,9 +13,9 @@ if __name__ == "__main__":
             with open("recent_cars.json", "r") as json_data:
                 cars_nearby_saved = json.load(json_data)
             if cars_nearby != cars_nearby_saved:
-                f2 = open("recent_cars.json", "w")
-                f2.write(json.dumps(cars_nearby))
-                f2.close()
+                f = open("recent_cars.json", "w")
+                f.write(json.dumps(cars_nearby))
+                f.close()
                 send_email(cars_nearby)
         except FileNotFoundError as e:
             print(e)

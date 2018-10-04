@@ -5,9 +5,15 @@ MAX_DISTANCE = 1
 YOUR_COORDS = {"latitude": 51.112571, "longitude": 17.000092}
 
 # Fill in the username and password for your own email account
-user = ""
-password = ""
+USER = ""
+PASSWORD = ""
 
 # Fill in the host and username with your preferences
-host = 'smtp.gmail.com'
-port = 465
+HOST = 'smtp.gmail.com'
+PORT = 465
+
+# For calculations
+EARTH_RADIUS = 6371
+
+# Vozilla map API
+API_URL = "https://api-client-portal.vozilla.pl//map?objectType=VEHICLE&vehicleStatus=AVAILABLE&vehicleStatus=RESERVED.json"
