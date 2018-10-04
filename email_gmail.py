@@ -3,7 +3,7 @@ import socket
 from email.mime.text import MIMEText
 
 
-def send_email():
+def send_email(plates, distance):
     try:
         f = open("credentials.txt")  # A file which has credentials to gmail account -> username \m password
     except FileNotFoundError as e:
@@ -13,9 +13,11 @@ def send_email():
         gmail_password = f.readline()
         f.close()
 
-        email_text = 'Hey, \n The subjects says it all -> go on your Vozilla app and look for the car \n\n-Your dearest'
+        email_text = 'Hey, \nThe subjects says it all -> go on your Vozilla app and look for the car ' \
+                     'with plates: ' + plates + ' and away from you respectively ' + distance + ' [km]'\
+                     + '\n\n-Your dearest'
         msg = MIMEText(email_text)
-        msg["Subject"] = 'Vozilla nearby your location'
+        msg["Subject"] = 'Vozilla nearby'
         msg["From"] = gmail_user
         msg["To"] = gmail_user
 
@@ -29,6 +31,3 @@ def send_email():
 
         except socket.error as e:
             print(e)
-
-
-send_email()
