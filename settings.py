@@ -11,9 +11,3 @@ PASSWORD = ""
 # Fill in the host and username with your preferences
 HOST = 'smtp.gmail.com'
 PORT = 465
-
-# For calculations
-EARTH_RADIUS = 6371
-
-# Vozilla map API
-API_URL = "https://api-client-portal.vozilla.pl//map?objectType=VEHICLE&vehicleStatus=AVAILABLE&vehicleStatus=RESERVED.json"

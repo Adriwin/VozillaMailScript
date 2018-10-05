@@ -1,4 +1,4 @@
-from email_gmail import send_email
+from send_email import send_email
 from settings import MAX_DISTANCE
 from vozilla_api import get_vozilla_api, get_cars, get_cars_within_distance
 import json
